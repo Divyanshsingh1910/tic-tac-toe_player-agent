@@ -1,6 +1,6 @@
 # tic-tac-toe_player-agent
 The repository documents the code files which facilitate a game agent which can play tic-tac-toe on images.
-To play game rum command   ```python runner.py```
+To play game run command   ```python runner.py```
 
 The gameplay is as follows:
 1. The user is asked to play as X or O. First move is made by X.
