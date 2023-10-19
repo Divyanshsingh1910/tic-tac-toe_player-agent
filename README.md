@@ -4,18 +4,12 @@ The repository documents the code files which facilitate a game agent which can 
 ## Tictactoe Player Agent
 
 ### Code files
-`Helper_functions.py`
+`Helper_functions.py` : All the necessary functionalities are provided through the functions of this file. 
 
-    All the necessary functionalities are provided through the functions of this file. 
-
-`Player.py`
-
-    The user will input the his/her code in this file which will play with 
+`Player.py` : The user will input the his/her code in this file which will play with 
     our agent
 
-`main.py`
-
-    This is the main agent which will interact with the user
+`main.py` : This is the main agent which will interact with the user
 
 **Data** 
 
