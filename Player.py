@@ -1,6 +1,6 @@
 #importing library
 import numpy as np
-
+from tictactoe import tictactoe
 """
 Functions:
      player:
@@ -17,6 +17,7 @@ Functions:
 """
 
 def player(Array):
-    
+    board = np.array(Array)
+    board = np.reshape(board, (3,3))
     pass
 
