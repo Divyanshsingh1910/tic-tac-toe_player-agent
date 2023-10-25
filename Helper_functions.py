@@ -43,8 +43,29 @@ def generate_image(Array):
     pass
 
 def get_pattern(querry_array,Flag):
+
+    """
+    Flag := Ineractive mode -> Iss case mein machine ka turn --> tackle ho jayega
+    When flag := Generative mode -> Pull pattern from the dataset
+
+
+    """
+
     pass
 
 def tester(querry_array, user_input):
+    """
+    Either user won/lost
+    error
+    
+    """
     pass
 
+
+"""
+>>>>>> dataset: patterns --> 2 category - (a) start
+                                          (b) Intermediate
+
+                                          100 patterns
+
+"""

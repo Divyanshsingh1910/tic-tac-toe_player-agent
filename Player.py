@@ -17,7 +17,18 @@ Functions:
 """
 
 def player(Array):
+    
     board = np.array(Array)
     board = np.reshape(board, (3,3))
-    pass
+
+    """
+
+    recieve the image
+    decode the pattern
+    find the next turn 
+    return the next turn/giveup
+
+    """
+
+    # pass
 
