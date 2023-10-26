@@ -1,6 +1,8 @@
 #importing library
 import numpy as np
-from tictactoe import tictactoe
+from tictactoe.tictactoe import actions,result,winner,player,minimax
+import random
+
 """
 Functions:
      player:
@@ -15,20 +17,52 @@ Functions:
             - Giveup: [-1] to giveup 
             - possibility_3: I am thinking on this ( you guys also think )
 """
+"""
+            modification : returns the tuple and the character which must be placed
+            else returns None if the player decides to giveup    
+"""
 
-def player(Array):
-    
-    board = np.array(Array)
-    board = np.reshape(board, (3,3))
-
+def player_main(Array):
     """
-
     recieve the image
-    decode the pattern
-    find the next turn 
-    return the next turn/giveup
-
     """
+    board = np.array(Array)
+    #board = np.reshape(board, (3,3))
+    """
+    decode the pattern
+    """
+    #predict is a function that when given an image predicts if it is zero, cross or None
+    #returns None , "X" or "O"
+    char_array = np.array([predict(img) for img in board])
+    char_array = char_array.reshape(3,3)
+    """
+    find the next turn 
+    """
+    """
+    return the next turn/giveup
+    """
+    acts = actions(char_array)
 
-    # pass
+    for act in acts:
+        copy = char_array.copy()
+        copy = result(copy,act)
+        win = winner(copy)
+        if win is not None :
+            return act,win
+        else:
+            continue
+
+    # #if for loop ends without returning no one is winning.
+    # #choose a random action and play!
+    
+    # turn = player(char_array)
+    # random_action = random.choice(list(acts))
+    # return random_action , turn
+    turn = player(board)
+    #other option is to play the optimum action
+    opt = minimax(char_array)
+    return opt,turn
+    #note that the function returns None if no action is available.
+
+
 

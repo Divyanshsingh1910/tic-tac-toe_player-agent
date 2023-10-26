@@ -16,7 +16,7 @@ Functions:
                 * Flag = 2: Generate next pattern based on the user's input querry
                             array( i.e. next turn after the user)
 
-            Return val: This should return the a 9-length array for output pattern
+            Return val: This should return the a 9-length array for output pattern 
     -------------------------------------------------------------------
     generate_image:
             Arguments:
@@ -37,6 +37,7 @@ Functions:
                 basic idea is to evaluate the user's input based on the querry input
             Return val: 
                 This will also change accordingly         
+            #modification : user_input will be a pair of indices on where to play and the character to play
 """
 
 def generate_image(Array):
