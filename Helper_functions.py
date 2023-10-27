@@ -1,5 +1,6 @@
 #importing library
 import numpy as np
+import tictactoe as tt
 
 """
 Functions:
@@ -43,23 +44,55 @@ Functions:
 def generate_image(Array):
     pass
 
-def get_pattern(querry_array,Flag):
+def get_pattern(querry_array,Flag, user):
 
     """
     Flag := Ineractive mode -> Iss case mein machine ka turn --> tackle ho jayega
     When flag := Generative mode -> Pull pattern from the dataset
 
 
+    Flag = 0 -> Start pattern
+    Flag = 1 -> Intermediate pattern
     """
+
+    board = np.reshape(np.array(querry_array), (3,3))
+
+    if Flag == 0:
+        while not tt.terminal(board):
+
+            player = tt.player(board)
+            if user != player :
+                move = tt.minimax(board)
+
+            else:
+                print("Enter the index of the next turn")
+                index = int(input())
+                move = (index//3, index%3)
+
+            if(move not in tt.actions(board)):
+                print("Invalid move")
+                continue
+            
+            board = tt.result(board, move)
+            if tt.terminal(board):
+                tester(board, index)
+                return board
+
 
     pass
 
-def tester(querry_array, user_input):
+def tester(querry_array, user):
     """
     Either user won/lost
     error
     
     """
+    board = np.reshape(np.array(querry_array), (3,3))
+    if tt.winner(board) == user:
+        print("user won")
+    else:
+        print("user lost")
+
     pass
 
 
