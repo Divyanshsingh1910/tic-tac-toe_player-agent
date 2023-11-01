@@ -46,16 +46,16 @@ Functions:
             #modification : user_input will be a pair of indices on where to play and the character to play
 """
 def choose_image_0():
-        folder_0 = r'C:\Users\Trijal Srivastava\OneDrive\Desktop\VS CODE\ICG_competition\tic-tac-toe_player-agent\Data\Images\zeros'
-        files_0 = os.listdir(r'C:\Users\Trijal Srivastava\OneDrive\Desktop\VS CODE\ICG_competition\tic-tac-toe_player-agent\Data\Images\zeros')
+        folder_0 = r'\Data\Images\zeros'
+        files_0 = os.listdir(r'\Data\Images\zeros')
         image_files_0 = [f for f in files_0 if f.endswith(('.png'))]
         random_image_0 = random.choice(image_files_0)
         image_path_0 = os.path.join(folder_0, random_image_0)
         return image_path_0
     
 def choose_image_1():
-        folder_1 = r'C:\Users\Trijal Srivastava\OneDrive\Desktop\VS CODE\ICG_competition\tic-tac-toe_player-agent\Data\Images\crosses'
-        files_1 = os.listdir(r'C:\Users\Trijal Srivastava\OneDrive\Desktop\VS CODE\ICG_competition\tic-tac-toe_player-agent\Data\Images\crosses')
+        folder_1 =r'Data\Images\crosses'
+        files_1 = os.listdir(r'Data\Images\crosses')
         image_files_1 = [f for f in files_1 if f.endswith( ('.png'))]
         random_image_1 = random.choice(image_files_1)
         image_path_1 = os.path.join(folder_1, random_image_1)
