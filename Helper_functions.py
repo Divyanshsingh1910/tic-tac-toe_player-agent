@@ -58,27 +58,31 @@ def get_pattern(querry_array,Flag, user):
     board = np.reshape(np.array(querry_array), (3,3))
 
     if Flag == 0:
-        while not tt.terminal(board):
+        board = np.zeros((3,3))
+    
+    else:
+        board = np.reshape(np.array(querry_array), (3,3))
 
-            player = tt.player(board)
-            if user != player :
-                move = tt.minimax(board)
+    while not tt.terminal(board):
 
-            else:
-                print("Enter the index of the next turn")
-                index = int(input())
-                move = (index//3, index%3)
+        player = tt.player(board)
+        if user != player :
+            move = tt.minimax(board)
 
-            if(move not in tt.actions(board)):
-                print("Invalid move")
-                continue
+        else:
+            print("Enter the index of the next turn")
+            index = int(input())
+            move = (index//3, index%3)
+
+        if(move not in tt.actions(board)):
+            print("Invalid move")
+            continue
             
-            board = tt.result(board, move)
-            if tt.terminal(board):
-                tester(board, index)
-                return np.reshape(np.array(board), (1,9))
+        board = tt.result(board, move)
 
 
+    tester(board, index)
+    return np.reshape(np.array(board), (1,9))
     pass
 
 def tester(querry_array, user):
@@ -89,7 +93,7 @@ def tester(querry_array, user):
     Returns 1 if user has won the game, -1 if AI has won, 0 otherwise.
     """
     board = np.reshape(np.array(querry_array), (3,3))
-    
+
     currentWinner = tt.winner(board)
     if currentWinner == user:
         return 1
