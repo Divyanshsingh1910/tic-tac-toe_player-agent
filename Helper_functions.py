@@ -76,7 +76,7 @@ def get_pattern(querry_array,Flag, user):
             board = tt.result(board, move)
             if tt.terminal(board):
                 tester(board, index)
-                return board
+                return np.reshape(np.array(board), (1,9))
 
 
     pass
