@@ -5,6 +5,7 @@ import os
 import random
 import pandas as pd 
 from PIL import Image
+import tictactoe as tt
 import matplotlib.pyplot as plt
 
 """
@@ -142,7 +143,7 @@ def get_pattern(querry_array,Flag, user):
         board = tt.result(board, move)
 
 
-    tester(board, index)
+    tester(board, user)
     return np.reshape(np.array(board), (1,9))
     pass
 
