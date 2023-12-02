@@ -6,6 +6,8 @@ import random
 import pandas as pd 
 from PIL import Image
 import matplotlib.pyplot as plt
+#from generate_image import generate_image
+import tictactoe as tt
 
 """
 Functions:
@@ -45,6 +47,8 @@ Functions:
                 This will also change accordingly         
             #modification : user_input will be a pair of indices on where to play and the character to play
 """
+
+
 def choose_image_0():
         folder_0 = r'\Data\Images\zeros'
         files_0 = os.listdir(r'\Data\Images\zeros')
