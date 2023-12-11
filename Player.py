@@ -29,12 +29,9 @@ def predict(image):
 
     return random.choice(choice_arr)
 
-def player_main(Array):
-
-
 # define 2 boards one is the original board and the other is the predicted by user
 def player_main(Array, user):
-    
+
     """
     recieve the image
     """
