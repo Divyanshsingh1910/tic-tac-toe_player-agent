@@ -5,11 +5,9 @@ import os
 import random
 import pandas as pd 
 from PIL import Image
-import tictactoe as tt
+from tictactoe import tictactoe as tt
 import matplotlib.pyplot as plt
 #from generate_image import generate_image
-import tictactoe as tt
-
 """
 Functions:
     get_pattern:
@@ -35,6 +33,8 @@ Functions:
 
             Return val: A 2D array for the image generated for the querry 
                 array passed as input
+
+            
     --------------------------------------------------------------------
     tester:     
             Arguments:
@@ -53,16 +53,19 @@ Functions:
 #  ----------------------- Dummy functions -----------------------------
 
 def choose_image_0():
-        folder_0 = r'\Data\Images\zeros'
-        files_0 = os.listdir(r'\Data\Images\zeros')
+        # folder_0 = r'\Data\Images\zeros'
+        folder_0 = r'Data\Modified_Images\zeros' #Arush - first slash nahi aayega
+        # files_0 = os.listdir(r'\Data\Images\zeros')
+        files_0 = os.listdir(folder_0) 
         image_files_0 = [f for f in files_0 if f.endswith(('.png'))]
         random_image_0 = random.choice(image_files_0)
         image_path_0 = os.path.join(folder_0, random_image_0)
         return image_path_0
     
 def choose_image_1():
-        folder_1 =r'Data\Images\crosses'
-        files_1 = os.listdir(r'Data\Images\crosses')
+        folder_1 =r'Data\Modified_Images\crosses'
+        # files_1 = os.listdir(r'Data\Images\crosses')
+        files_1 = os.listdir(folder_1)
         image_files_1 = [f for f in files_1 if f.endswith( ('.png'))]
         random_image_1 = random.choice(image_files_1)
         image_path_1 = os.path.join(folder_1, random_image_1)
@@ -87,19 +90,19 @@ def generate_image(Array):
 
     for i in range(m):
 
+            # 1 for cross
             if Array[i] == 1:
                 x = choose_image_1()
                 x_np = png_to_array(x)
                 small_matrix.append(x_np)
-        
-    
+
+            # 0 for zero
             elif Array[i] == 0:
                 x = choose_image_0()
                 x_np = png_to_array(x)
                 small_matrix.append(x_np)
 
-
-
+            # 2 for blank
             elif Array[i] ==2:
                 x = np.zeros((28,28))
                 small_matrix.append(x)
@@ -115,7 +118,7 @@ def generate_image(Array):
 
     
 
-def get_pattern(querry_array,Flag, user):
+def get_pattern(querry_array,Flag,user):
 
     """
     Flag := Ineractive mode -> Iss case mein machine ka turn --> tackle ho jayega
@@ -126,34 +129,37 @@ def get_pattern(querry_array,Flag, user):
     Flag = 1 -> Intermediate pattern
     """
 
-    # board = np.reshape(np.array(querry_array), (3,3))
+    board = np.reshape(np.array(querry_array), (3,3))
 
     if Flag == 0:
-        board = np.zeros((3,3))
+        board = np.zeros((1,9))
     
     else:
-        board = np.reshape(np.array(querry_array), (3,3))
+        board = np.array(querry_array)
 
-    while not tt.terminal(board):
+    return board
+    pass
+    # while not tt.terminal(board):
 
-        player = tt.player(board)
-        if user != player :
-            move = tt.minimax(board)
+    #     player = tt.player(board)
+    #     if user != player :
+    #         move = tt.minimax(board)
 
-        else:
-            print("Enter the index of the next turn")
-            index = int(input())
-            move = (index//3, index%3)
+    #     else:
+    #         print("Enter the index of the next turn")
+    #         index = int(input())
+    #         move = (index//3, index%3)
 
-        if(move not in tt.actions(board)):
-            print("Invalid move")
-            continue
+    #     if(move not in tt.actions(board)):
+    #         print("Invalid move")
+    #         continue
             
-        board = tt.result(board, move)
+    #     board = tt.result(board, move)
 
 
     tester(board, user)
     return np.reshape(np.array(board), (1,9))
+    pass
 
 def tester(querry_array, user):
     """
