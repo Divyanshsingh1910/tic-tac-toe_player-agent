@@ -24,7 +24,13 @@ def player_agent():
     """
     #generate a ranom querry pattern 
     #None implies pattern is to be generated
-    querry = get_pattern(None,0)
+
+    #Take as input what the player wants to play first
+    C = str(input("Choose the character that you want to play :"))
+    while C != 'X' or C!= 'O':
+        C = input("Choose a valid character !(X or O) : ")
+        
+    querry = get_pattern(None,0,C)
     """
     pattern_img <-- querry stored
     """

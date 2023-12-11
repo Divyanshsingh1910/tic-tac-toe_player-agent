@@ -35,6 +35,8 @@ Functions:
 
             Return val: A 2D array for the image generated for the querry 
                 array passed as input
+
+            
     --------------------------------------------------------------------
     tester:     
             Arguments:
@@ -51,16 +53,19 @@ Functions:
 
 
 def choose_image_0():
-        folder_0 = r'\Data\Images\zeros'
-        files_0 = os.listdir(r'\Data\Images\zeros')
+        # folder_0 = r'\Data\Images\zeros'
+        folder_0 = r'Data\Modified_Images\zeros' #Arush - first slash nahi aayega
+        # files_0 = os.listdir(r'\Data\Images\zeros')
+        files_0 = os.listdir(folder_0) 
         image_files_0 = [f for f in files_0 if f.endswith(('.png'))]
         random_image_0 = random.choice(image_files_0)
         image_path_0 = os.path.join(folder_0, random_image_0)
         return image_path_0
     
 def choose_image_1():
-        folder_1 =r'Data\Images\crosses'
-        files_1 = os.listdir(r'Data\Images\crosses')
+        folder_1 =r'Data\Modified_Images\crosses'
+        # files_1 = os.listdir(r'Data\Images\crosses')
+        files_1 = os.listdir(folder_1)
         image_files_1 = [f for f in files_1 if f.endswith( ('.png'))]
         random_image_1 = random.choice(image_files_1)
         image_path_1 = os.path.join(folder_1, random_image_1)
@@ -81,20 +86,21 @@ def generate_image(Array):
     small_matrix = []
 
     for i in range(m):
-
+            
+            # 1 for cross
             if Array[i] == 1:
                 x = choose_image_1()
                 x_np = png_to_array(x)
                 small_matrix.append(x_np)
         
-    
+            # 0 for zero
             elif Array[i] == 0:
                 x = choose_image_0()
                 x_np = png_to_array(x)
                 small_matrix.append(x_np)
 
 
-
+            # 2 for blank
             elif Array[i] ==2:
                 x = np.zeros((28,28))
                 small_matrix.append(x)
@@ -110,7 +116,7 @@ def generate_image(Array):
 
     
 
-def get_pattern(querry_array,Flag, user):
+def get_pattern(querry_array,Flag,user):
 
     """
     Flag := Ineractive mode -> Iss case mein machine ka turn --> tackle ho jayega
