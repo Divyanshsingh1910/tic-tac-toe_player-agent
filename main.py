@@ -25,18 +25,31 @@ def player_agent():
     #generate a ranom querry pattern 
     #None implies pattern is to be generated
     querry = get_pattern(None,0)
+
+
+
     """
     pattern_img <-- querry stored
     """
     img = generate_image(querry)
+
+
+
     """
     user_response = player(pattern_img)
     """
     response = player_main(img)
+
+
+
     """
     result = tester(user_response,querry)
     """
     result = tester(response,querry)
+
+
+
+
     """"
     while result is not decidable:
         call player again
@@ -56,3 +69,6 @@ def player_agent():
     
     if result == 1 :# 1 for winning
         wins += 1
+
+
+    print(f"Final #wins:= {wins}")

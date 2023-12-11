@@ -50,6 +50,8 @@ Functions:
 """
 
 
+#  ----------------------- Dummy functions -----------------------------
+
 def choose_image_0():
         folder_0 = r'\Data\Images\zeros'
         files_0 = os.listdir(r'\Data\Images\zeros')
@@ -74,6 +76,9 @@ def png_to_array(file_path):
         image_array = np.array(image)
 
         return image_array
+
+
+# //////////////////// Actual functions ///////////////////
 
 def generate_image(Array):
     m = len(Array)
@@ -121,7 +126,7 @@ def get_pattern(querry_array,Flag, user):
     Flag = 1 -> Intermediate pattern
     """
 
-    board = np.reshape(np.array(querry_array), (3,3))
+    # board = np.reshape(np.array(querry_array), (3,3))
 
     if Flag == 0:
         board = np.zeros((3,3))
@@ -149,7 +154,6 @@ def get_pattern(querry_array,Flag, user):
 
     tester(board, user)
     return np.reshape(np.array(board), (1,9))
-    pass
 
 def tester(querry_array, user):
     """
@@ -161,6 +165,7 @@ def tester(querry_array, user):
     board = np.reshape(np.array(querry_array), (3,3))
 
     currentWinner = tt.winner(board)
+
     if currentWinner == user:
         return 1
     elif currentWinner == None: # case of tie
@@ -174,5 +179,17 @@ def tester(querry_array, user):
                                           (b) Intermediate
 
                                           100 patterns
+
+"""
+
+
+
+"""
+user --> func that will play the game <-- image 
+
+backend : use the func_user and interact it with machine_player
+
+3x3 
+
 
 """

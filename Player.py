@@ -1,6 +1,6 @@
 #importing library
 import numpy as np
-from tictactoe.tictactoe import actions,result,winner,player,minimax
+from tictactoe import actions,result,winner,player,minimax
 import random
 
 """
@@ -21,6 +21,12 @@ Functions:
             modification : returns the tuple and the character which must be placed
             else returns None if the player decides to giveup    
 """
+
+# dummy definition 
+def predict(image):
+    choice_arr = [0,1,2]
+
+    return random.choice(choice_arr)
 
 def player_main(Array):
     """
