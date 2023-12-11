@@ -5,11 +5,9 @@ import os
 import random
 import pandas as pd 
 from PIL import Image
-import tictactoe as tt
+from tictactoe import tictactoe as tt
 import matplotlib.pyplot as plt
 #from generate_image import generate_image
-import tictactoe as tt
-
 """
 Functions:
     get_pattern:
@@ -86,19 +84,18 @@ def generate_image(Array):
     small_matrix = []
 
     for i in range(m):
-            
+
             # 1 for cross
             if Array[i] == 1:
                 x = choose_image_1()
                 x_np = png_to_array(x)
                 small_matrix.append(x_np)
-        
+
             # 0 for zero
             elif Array[i] == 0:
                 x = choose_image_0()
                 x_np = png_to_array(x)
                 small_matrix.append(x_np)
-
 
             # 2 for blank
             elif Array[i] ==2:
@@ -127,35 +124,35 @@ def get_pattern(querry_array,Flag,user):
     Flag = 1 -> Intermediate pattern
     """
 
-    board = np.reshape(np.array(querry_array), (3,3))
-
     if Flag == 0:
-        board = np.zeros((3,3))
+        board = np.zeros((1,9))
     
     else:
-        board = np.reshape(np.array(querry_array), (3,3))
+        board = np.array(querry_array)
 
-    while not tt.terminal(board):
-
-        player = tt.player(board)
-        if user != player :
-            move = tt.minimax(board)
-
-        else:
-            print("Enter the index of the next turn")
-            index = int(input())
-            move = (index//3, index%3)
-
-        if(move not in tt.actions(board)):
-            print("Invalid move")
-            continue
-            
-        board = tt.result(board, move)
-
-
-    tester(board, user)
-    return np.reshape(np.array(board), (1,9))
+    return board
     pass
+    # while not tt.terminal(board):
+
+    #     player = tt.player(board)
+    #     if user != player :
+    #         move = tt.minimax(board)
+
+    #     else:
+    #         print("Enter the index of the next turn")
+    #         index = int(input())
+    #         move = (index//3, index%3)
+
+    #     if(move not in tt.actions(board)):
+    #         print("Invalid move")
+    #         continue
+            
+    #     board = tt.result(board, move)
+
+
+    # tester(board, user)
+    # return np.reshape(np.array(board), (1,9))
+    # pass
 
 def tester(querry_array, user):
     """

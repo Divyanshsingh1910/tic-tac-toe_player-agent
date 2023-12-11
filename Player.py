@@ -1,6 +1,6 @@
 #importing library
 import numpy as np
-from tictactoe.tictactoe import actions,result,winner,player,minimax
+from tictactoe.tictactoe import actions,result,winner,player,minimax, terminal
 import random
 
 """
@@ -19,10 +19,12 @@ Functions:
 """
 """
             modification : returns the tuple and the character which must be placed
-            else returns None if the player decides to giveup    
+            else returns None if the player decides to giveup
 """
 
-def player_main(Array):
+
+# define 2 boards one is the original board and the other is the predicted by user
+def player_main(Array, user):
     """
     recieve the image
     """
@@ -36,21 +38,48 @@ def player_main(Array):
     char_array = np.array([predict(img) for img in board])
     char_array = char_array.reshape(3,3)
     """
-    find the next turn 
+    find the next turn
     """
+    next_turn = player(char_array)
     """
     return the next turn/giveup
     """
-    acts = actions(char_array)
+    # computer turn
+    if next_turn != user:
 
-    for act in acts:
-        copy = char_array.copy()
-        copy = result(copy,act)
-        win = winner(copy)
-        if win is not None :
-            return act,win
+        move = minimax(char_array)
+        char_array = result(char_array, move)
+
+        if terminal(char_array):        # computer wins
+            return None, None
+
+# user turn
+    else:
+        acts = actions(board.reshape(3,3))
+        if len(acts) == 0:          # tie
+            return None, None
         else:
-            continue
+            mov = int(input("Enter the move: "))
+            move = (mov//3, mov%3)
+
+            if move not in acts:
+                print("Invalid move")
+                return None, None
+
+            else:
+                char_array = result(char_array, move)
+    
+            if terminal(char_array):        # user wins
+                return None, None
+
+    # for act in acts:
+    #     copy = char_array.copy()
+    #     copy = result(copy,act)
+    #     win = winner(copy)
+    #     if win is not None :
+    #         return act,win
+    #     else:
+    #         continue
 
     # #if for loop ends without returning no one is winning.
     # #choose a random action and play!
