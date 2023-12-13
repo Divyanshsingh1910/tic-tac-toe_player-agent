@@ -42,7 +42,10 @@ def player_main(Array, user):
     """
     #predict is a function that when given an image predicts if it is zero, cross or None
     #returns None , "X" or "O"
-    char_array = np.array([predict(img) for img in board])
+    
+    # char_array = np.array([predict(img) for img in board])
+
+    char_array = np.array(Array)  # for now consider this as the char array
     char_array = char_array.reshape(3,3)
     """
     find the next turn
