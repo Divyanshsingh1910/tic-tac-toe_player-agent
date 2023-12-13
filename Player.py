@@ -59,7 +59,8 @@ def player_main(Array, user):
     if next_turn != user:
 
         move = minimax(char_array)
-        char_array = result(char_array, move)
+        if move is not None:
+            char_array = result(char_array, move)
 
         if terminal(char_array):        # computer wins
             return None, None
@@ -75,6 +76,7 @@ def player_main(Array, user):
 
             if move not in acts:
                 print("Invalid move")
+                # we can make the user lose if he makes a wrong move
                 return None, None
 
             else:
