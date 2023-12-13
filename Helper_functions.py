@@ -54,7 +54,7 @@ Functions:
 
 def choose_image_0():
         # folder_0 = r'\Data\Images\zeros'
-        folder_0 = r'tic-tac-toe_player-agent/Data/Modified_Images/crosses' #Arush - first slash nahi aayega
+        folder_0 = r'Data/Modified_Images/crosses' #Arush - first slash nahi aayega
         # files_0 = os.listdir(r'\Data\Images\zeros')
         files_0 = os.listdir(folder_0) 
         image_files_0 = [f for f in files_0 if f.endswith(('.png'))]
@@ -63,7 +63,8 @@ def choose_image_0():
         return image_path_0
     
 def choose_image_1():
-        folder_1 =r'tic-tac-toe_player-agent/Data/Modified_Images/zeros'
+        folder_1 =r'Data/Modified_Images/zeros'
+        # folder_1 =r'tic-tac-toe_player-agent/Data/Modified_Images/zeros'
         # files_1 = os.listdir(r'Data\Images\crosses')
         files_1 = os.listdir(folder_1)
         image_files_1 = [f for f in files_1 if f.endswith( ('.png'))]

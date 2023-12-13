@@ -60,7 +60,7 @@ def player_main(Array, user):
         if terminal(char_array):        # computer wins
             return None, None
 
-# user turn
+    # user turn
     else:
         acts = actions(board.reshape(3,3))
         if len(acts) == 0:          # tie
