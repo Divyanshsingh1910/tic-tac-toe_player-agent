@@ -86,6 +86,7 @@ def player_main(Array, user):
             if terminal(char_array):        # user wins
                 return None, None
 
+            return None, None
     # for act in acts:
     #     copy = char_array.copy()
     #     copy = result(copy,act)
@@ -101,8 +102,8 @@ def player_main(Array, user):
     # turn = player(char_array)
     # random_action = random.choice(list(acts))
     # return random_action , turn
-    turn = player(board)
-    #other option is to play the optimum action
+    turn = player(char_array)
+    # #other option is to play the optimum action
     opt = minimax(char_array)
     return opt,turn
     #note that the function returns None if no action is available.
