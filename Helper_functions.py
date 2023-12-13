@@ -123,7 +123,7 @@ def generate_image(Array):
 
     
 
-def get_pattern(querry_array,Flag,user):
+def get_pattern(querry_array):
 
     """
     Flag := Ineractive mode -> Iss case mein machine ka turn --> tackle ho jayega
@@ -134,11 +134,10 @@ def get_pattern(querry_array,Flag,user):
     Flag = 1 -> Intermediate pattern
     """
 
-    board = np.reshape(np.array(querry_array), (3,3))
+    # 2 is for none in array
+    if querry_array == None:
+        board = np.full((1, 9), 2, dtype=int)[0]
 
-    if Flag == 0:
-        board = np.zeros((1,9))
-    
     else:
         board = np.array(querry_array)
 

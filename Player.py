@@ -31,6 +31,7 @@ def predict(image):
 
 # define 2 boards one is the original board and the other is the predicted by user
 def player_main(Array, user):
+    # we should return the final array after move and the score alongside
 
     """
     recieve the image

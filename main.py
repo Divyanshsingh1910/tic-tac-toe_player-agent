@@ -24,7 +24,7 @@ def player_agent():
     """
     #generate a ranom querry pattern 
     #None implies pattern is to be generated
-    querry = get_pattern(None,0)
+    querry = get_pattern(None)
 
 
 
@@ -41,9 +41,8 @@ def player_agent():
     response = player_main(img)
 
 
-
     """
-    result = tester(user_response,querry)
+    result = tester(querry_array, user)
     """
     result = tester(response,querry)
 
