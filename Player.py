@@ -44,8 +44,9 @@ def player_main(Array, user):
     #returns None , "X" or "O"
     
     # char_array = np.array([predict(img) for img in board])
-
-    char_array = np.array(Array)  # for now consider this as the char array
+    arr = ["X", "O", None]
+    char_array = [arr[i] for i in Array]
+    char_array = np.array(char_array)  # for now consider this as the char array
     char_array = char_array.reshape(3,3)
     """
     find the next turn
