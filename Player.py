@@ -45,7 +45,8 @@ def player_main(Array, user):
     #returns None , "X" or "O"
     
     # char_array = np.array([predict(img) for img in board])
-    arr = ["X", "O", None]
+    arr = {0 : "X", 1 : "O", 2 : None}
+    arr1 = {"X" : 0, "O" : 1, None : 2}
     char_array = [arr[i] for i in Array]
     char_array = np.array(char_array)  # for now consider this as the char array
     char_array = char_array.reshape(3,3)
@@ -62,15 +63,19 @@ def player_main(Array, user):
         move = minimax(char_array)
         if move is not None:
             char_array = result(char_array, move)
+            temp_arr = char_array.reshape(9)
+            Array = [arr1[i] for i in temp_arr]
 
         if terminal(char_array):        # computer wins
-            return None, None
+            return char_array, move
+
+        return Array, move
 
     # user turn
     else:
-        acts = actions(board.reshape(3,3))
+        acts = actions(char_array.reshape(3,3))
         if len(acts) == 0:          # tie
-            return None, None
+            return Array, acts
         else:
             mov = int(input("Enter the move: "))
             move = (mov//3, mov%3)
@@ -78,15 +83,17 @@ def player_main(Array, user):
             if move not in acts:
                 print("Invalid move")
                 # we can make the user lose if he makes a wrong move
-                return None, None
+                return Array, None
 
             else:
                 char_array = result(char_array, move)
+                temp_arr = char_array.reshape(9)
+                Array = [arr1[i] for i in temp_arr]
     
             if terminal(char_array):        # user wins
-                return None, None
+                return Array, move
 
-            return None, None
+        return Array, move
     # for act in acts:
     #     copy = char_array.copy()
     #     copy = result(copy,act)
@@ -102,10 +109,10 @@ def player_main(Array, user):
     # turn = player(char_array)
     # random_action = random.choice(list(acts))
     # return random_action , turn
-    turn = player(char_array)
-    # #other option is to play the optimum action
-    opt = minimax(char_array)
-    return opt,turn
+    # turn = player(char_array)
+    # # #other option is to play the optimum action
+    # opt = minimax(char_array)
+    # return opt,turn
     #note that the function returns None if no action is available.
 
 
