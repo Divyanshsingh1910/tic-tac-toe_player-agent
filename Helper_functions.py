@@ -172,12 +172,7 @@ def tester(querry_array, user):
 
     Returns 1 if user has won the game, -1 if AI has won, 0 otherwise.
     """
-    arr = {0 : "X", 1 : "O", 2 : None}
-    board = [arr[i] for i in querry_array]
-    board = np.reshape(np.array(board), (3,3))
-
-    if tt.terminal(board) is False:
-         return None
+    board = np.reshape(np.array(querry_array), (3,3))
 
     currentWinner = tt.winner(board)
 
@@ -185,8 +180,8 @@ def tester(querry_array, user):
         return 1
     elif currentWinner == None: # case of tie
         return 0
-    else:       #computer won
-        return -1 
+    else:
+        return -1
 
 
 """
