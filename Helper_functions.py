@@ -109,7 +109,7 @@ def generate_image(Array):
                 small_matrix.append(x)
 
 
-    positions = [(0, 0), (0, 28), (0, 56), (28, 0), (28, 28), (28, 56), (56, 0), (56, 28), (56, 56)]
+    positions = [(0, 0), (0, 29), (0, 57), (29, 0), (29, 29), (29, 57), (57, 0), (57, 29), (57, 57)]
 
     for i, (row, col) in enumerate(positions):
             big_matrix[row:row+28, col:col+28] = small_matrix[i]
