@@ -114,9 +114,9 @@ def generate_image(Array):
     for i, (row, col) in enumerate(positions):
             big_matrix[row:row+28, col:col+28] = small_matrix[i]
 
-    for i in range(3):
-        big_matrix[28*(i+1)-1, :] = 1  # Horizontal lines
-        big_matrix[:, 28*(i+1)-1] = 1  # vertical lines
+    for i in range(2):
+        big_matrix[28*(i+1), :] = 100  # Horizontal lines
+        big_matrix[:, 28*(i+1)] = 100  # vertical lines
 
     return big_matrix
 
