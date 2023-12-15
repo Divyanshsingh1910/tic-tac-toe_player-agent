@@ -86,7 +86,7 @@ def png_to_array(file_path):
 
 def generate_image(Array):
     m = len(Array)
-    big_matrix = np.zeros((84, 84))
+    big_matrix = np.zeros((86, 86))
     small_matrix = []
 
     for i in range(m):
@@ -109,14 +109,14 @@ def generate_image(Array):
                 small_matrix.append(x)
 
 
-    positions = [(0, 0), (0, 28), (0, 56), (28, 0), (28, 28), (28, 56), (56, 0), (56, 28), (56, 56)]
+    positions = [(0, 0), (0, 29), (0, 57), (29, 0), (29, 29), (29, 57), (57, 0), (57, 29), (57, 57)]
 
     for i, (row, col) in enumerate(positions):
             big_matrix[row:row+28, col:col+28] = small_matrix[i]
 
-    for i in range(3):
-        big_matrix[28*(i+1)-1, :] = 1  # Horizontal lines
-        big_matrix[:, 28*(i+1)-1] = 1  # vertical lines
+    for i in range(2):
+        big_matrix[28*(i+1), :] = 100  # Horizontal lines
+        big_matrix[:, 28*(i+1)] = 100  # vertical lines
 
     return big_matrix
 
