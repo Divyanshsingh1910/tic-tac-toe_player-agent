@@ -29,6 +29,11 @@ def predict(image):
 
     return random.choice(choice_arr)
 
+def turn(Array):
+    # return player(np.reshape(np.array(predict(Array))), (3,3))
+    return player(np.array(Array).reshape(3,3))
+
+
 # define 2 boards one is the original board and the other is the predicted by user
 def player_main(Array, user):
     # we should return the final array after move and the score alongside
