@@ -71,8 +71,10 @@ def player_main(Array, user):
             temp_arr = char_array.reshape(9)
             Array = [arr1[i] for i in temp_arr]
 
-        if terminal(char_array):        # computer wins
-            return char_array, move
+        if terminal(char_array): 
+            temp_arr = char_array.reshape(9)
+            Array = [arr1[i] for i in temp_arr] # computer wins
+            return Array, move
 
         return Array, move
 
