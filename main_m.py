@@ -24,6 +24,7 @@ def player_agent(arr):
     
     while tester(arr, user) is None:
         arr = player_main(arr, user)[0]
+        print(arr)
         img = generate_image(arr)
         plt.imshow(img)
         plt.show()
