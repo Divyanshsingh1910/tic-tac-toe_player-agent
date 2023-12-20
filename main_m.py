@@ -27,3 +27,12 @@ def player_agent(arr):
         img = generate_image(arr)
         plt.imshow(img)
         plt.show()
+
+    if tester(arr, user) == 1:
+        print("You won!")
+    elif tester(arr, user) == -1:
+        print("You lost!")
+    else:
+        print("Tie!")
+
+player_agent(get_pattern(None))
