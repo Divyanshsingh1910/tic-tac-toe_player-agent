@@ -34,5 +34,3 @@ def player_agent(arr):
         print("You lost!")
     else:
         print("Tie!")
-
-player_agent(get_pattern(None))
